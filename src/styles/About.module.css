@@ -1,12 +1,59 @@
 .aboutSection {
-    @apply bg-gray-100 py-20;
+    padding: 4rem 1rem;
+    background-color: #ffffff;
   }
   
   .aboutContainer {
-    @apply w-full max-w-screen-2xl mx-auto px-6;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   
   .sectionTitle {
-    @apply text-3xl font-bold mb-6;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #1f2937;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+  }
+  
+  .blockTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .skillBlock, .traitsBlock {
+    margin-bottom: 2.5rem;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .tags span {
+    background-color: #e5e7eb;
+    padding: 0.4rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1f2937;
+  }
+  
+  .traitsList {
+    list-style-type: "✅ ";
+    padding-left: 1.25rem;
+    line-height: 1.75;
+    color: #374151;
   }
   

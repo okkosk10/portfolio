@@ -2,6 +2,7 @@
 
 // 각 섹션과 네비게이션 바 컴포넌트를 임포트합니다.
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
@@ -17,7 +18,7 @@ export default function App() {
     <div className="font-sans">
       {/* 고정된 네비게이션 바를 렌더링합니다. */}
       <Navbar />
-      <main>
+      <main className="custom-container">
         {/* 각 섹션 컴포넌트를 순서대로 렌더링합니다. */}
         <Home />
         <About />
@@ -25,6 +26,7 @@ export default function App() {
         <Projects />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
