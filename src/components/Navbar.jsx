@@ -11,7 +11,7 @@ export default function Navbar() {
         <a href="#home" className="hover:text-blue-500">홈</a>
         <a href="#about" className="hover:text-blue-500">소개</a>
         <a href="#experience" className="hover:text-blue-500">경력</a>
-        <a href="#projects" className="hover:text-blue-500">기술 기반 예시</a>
+        <a href="#techdemos" className="hover:text-blue-500">기술 기반 예시</a>
         <a href="#contact" className="hover:text-blue-500">연락처</a>
       </div>
     </nav>
