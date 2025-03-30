@@ -1,15 +1,18 @@
 // sections/Contact.jsx
 
+// Contact 컴포넌트: 연락처 정보를 제공하는 섹션을 렌더링합니다.
 import styles from "../styles/Contact.module.css";
 
 export default function Contact() {
   return (
+    // 연락처 섹션의 컨테이너로, 모듈화된 CSS 클래스를 적용합니다.
     <section id="contact" className={styles.contactSection}>
       <div className={styles.contactContainer}>
+        {/* 섹션 타이틀 */}
         <h2 className={styles.sectionTitle}>연락처</h2>
-        <p className="text-gray-700 mb-4">프로젝트나 협업 문의는 아래 이메일 또는 GitHub를 통해 연락 주세요.</p>
+        {/* 이메일 및 GitHub 링크 */}
         <div className="text-lg space-y-2 text-gray-800">
-          <p>📧 youremail@example.com</p>
+          <p>📧 okkosk10@naver.com</p>
           <p>
             💻 <a href="https://github.com/okkosk10" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">github.com/okkosk10</a>
           </p>
