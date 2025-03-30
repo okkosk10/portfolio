@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./sections/Home";
 import About from "./sections/About";
-import Projects from "./sections/Projects";
+import TechDemos from "./sections/TechDemos";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 // 전역 스타일을 적용하기 위해 CSS 파일을 임포트합니다.
@@ -23,7 +23,7 @@ export default function App() {
         <Home />
         <About />
         <Experience />
-        <Projects />
+        <TechDemos />
         <Contact />
       </main>
       <Footer />

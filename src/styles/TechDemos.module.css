@@ -1,0 +1,52 @@
+.techDemosSection {
+  padding: 4rem 1.5rem;
+  background-color: #f9fafb;
+}
+
+.techDemosContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cardStack {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.75rem;
+}
+
+.cardText {
+  font-size: 0.95rem;
+  color: #374151;
+}
