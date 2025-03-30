@@ -1,0 +1,12 @@
+.contactSection {
+    @apply bg-gray-100 py-20;
+  }
+  
+  .contactContainer {
+    @apply w-full max-w-screen-2xl mx-auto px-6 text-center;
+  }
+  
+  .sectionTitle {
+    @apply text-3xl font-bold mb-6;
+  }
+  

@@ -1,0 +1,12 @@
+.aboutSection {
+    @apply bg-gray-100 py-20;
+  }
+  
+  .aboutContainer {
+    @apply w-full max-w-screen-2xl mx-auto px-6;
+  }
+  
+  .sectionTitle {
+    @apply text-3xl font-bold mb-6;
+  }
+  
