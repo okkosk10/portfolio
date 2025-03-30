@@ -11,9 +11,11 @@ export default function Contact() {
         {/* 섹션 타이틀 */}
         <h2 className={styles.sectionTitle}>연락처</h2>
         {/* 이메일 및 GitHub 링크 */}
-        <div className="text-lg space-y-2 text-gray-800">
-          <p>📧 okkosk10@naver.com</p>
-        </div>
+        <p>
+      📧 <a href="mailto:okkosk10@naver.com" className="hover:underline text-blue-600">
+            okkosk10@naver.com
+          </a>
+        </p>
       </div>
     </section>
   );

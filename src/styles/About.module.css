@@ -42,12 +42,13 @@
   }
   
   .tags span {
-    background-color: #e5e7eb;
+    background-color: #e0e7ff;
     padding: 0.4rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.875rem;
-    font-weight: 500;
-    color: #1f2937;
+    font-weight: 600;
+    color: #1e3a8a;
+    box-shadow: 0 0 0 1px #c7d2fe;
   }
   
   .traitsList {
