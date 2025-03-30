@@ -6,6 +6,7 @@ import Home from "./sections/Home";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
+import Experience from "./sections/Experience";
 // 전역 스타일을 적용하기 위해 CSS 파일을 임포트합니다.
 import "./index.css";
 
@@ -20,6 +21,7 @@ export default function App() {
         {/* 각 섹션 컴포넌트를 순서대로 렌더링합니다. */}
         <Home />
         <About />
+        <Experience />
         <Projects />
         <Contact />
       </main>

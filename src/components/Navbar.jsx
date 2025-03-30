@@ -10,7 +10,8 @@ export default function Navbar() {
         {/* 각 섹션으로 스크롤 이동할 수 있는 링크를 생성합니다. */}
         <a href="#home" className="hover:text-blue-500">홈</a>
         <a href="#about" className="hover:text-blue-500">소개</a>
-        <a href="#projects" className="hover:text-blue-500">프로젝트</a>
+        <a href="#experience" className="hover:text-blue-500">경력</a>
+        <a href="#projects" className="hover:text-blue-500">기술 기반 예시</a>
         <a href="#contact" className="hover:text-blue-500">연락처</a>
       </div>
     </nav>

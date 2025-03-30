@@ -1,0 +1,40 @@
+.experienceSection {
+    padding: 4rem 1rem;
+    background-color: #f9fafb;
+  }
+  
+  .experienceContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #111827;
+  }
+  
+  .job {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .company {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+  
+  .jobDetails {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    color: #374151;
+    line-height: 1.75;
+    font-size: 0.95rem;
+  }
+  

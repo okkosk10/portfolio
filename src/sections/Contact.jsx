@@ -13,9 +13,6 @@ export default function Contact() {
         {/* 이메일 및 GitHub 링크 */}
         <div className="text-lg space-y-2 text-gray-800">
           <p>📧 okkosk10@naver.com</p>
-          <p>
-            💻 <a href="https://github.com/okkosk10" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">github.com/okkosk10</a>
-          </p>
         </div>
       </div>
     </section>
