@@ -8,7 +8,8 @@ import About from "./sections/About";
 import TechDemos from "./sections/TechDemos";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
-import ViewerDemo from "./demo/ViewerDemo"; // 3D Viewer 데모
+import ViewerDemo from "./demo/ViewerDemo";
+import DigitalTwinDemo from "./demo/DigitalTwin";
 
 import "./index.css";
 
@@ -35,6 +36,7 @@ export default function App() {
 
       {/* 기술 데모: 3D Viewer */}
       <Route path="/demo/3d-viewer" element={<ViewerDemo />} />
+      <Route path="/demo/digital-twin" element={<DigitalTwinDemo />} />
     </Routes>
   );
 }
