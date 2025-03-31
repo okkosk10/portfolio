@@ -1,6 +1,6 @@
 // App.jsx
 
-// 각 섹션과 네비게이션 바 컴포넌트를 임포트합니다.
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./sections/Home";
@@ -8,25 +8,33 @@ import About from "./sections/About";
 import TechDemos from "./sections/TechDemos";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
-// 전역 스타일을 적용하기 위해 CSS 파일을 임포트합니다.
+import ViewerDemo from "./demo/ViewerDemo"; // 3D Viewer 데모
+
 import "./index.css";
 
-// App 컴포넌트는 전체 페이지의 구조를 정의합니다.
 export default function App() {
   return (
-    // Tailwind CSS의 sans-serif 폰트를 적용합니다.
-    <div className="font-sans">
-      {/* 고정된 네비게이션 바를 렌더링합니다. */}
-      <Navbar />
-      <main className="custom-container">
-        {/* 각 섹션 컴포넌트를 순서대로 렌더링합니다. */}
-        <Home />
-        <About />
-        <Experience />
-        <TechDemos />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      {/* 메인 포트폴리오 페이지 */}
+      <Route
+        path="/"
+        element={
+          <div className="font-sans">
+            <Navbar />
+            <main className="custom-container">
+              <Home />
+              <About />
+              <Experience />
+              <TechDemos />
+              <Contact />
+            </main>
+            <Footer />
+          </div>
+        }
+      />
+
+      {/* 기술 데모: 3D Viewer */}
+      <Route path="/demo/3d-viewer" element={<ViewerDemo />} />
+    </Routes>
   );
 }

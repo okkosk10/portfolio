@@ -27,6 +27,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #f9fafb;
+  overflow: hidden;  /* 스크롤 방지 */
+}
+/* 화면이 넘치지 않도록 부모 요소에 overflow-hidden을 추가 */
+.min-h-screen {
+  overflow: hidden;  /* 스크롤 방지 */
 }
 
 h1 {
@@ -84,4 +89,31 @@ body {
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+/* 툴팁 CSS */
+.tooltip-box {
+  position: absolute;
+  top: -30px; /* 툴팁 위치를 상단에 배치 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 8px;
+  font-size: 12px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s;
+}
+
+button:hover .tooltip-box {
+  opacity: 1;
+  visibility: visible;
+}
+
+button {
+  position: relative;
+  margin-top: 10px;
 }
