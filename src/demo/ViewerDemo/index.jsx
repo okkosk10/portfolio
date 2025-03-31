@@ -1,13 +1,10 @@
 // src/demo/ViewerDemo/index.jsx
-import { useState } from "react";
 import ViewerCanvas from './ViewerCanvas';
 
 export default function ViewerDemo() {
-  const [autoRotate, setAutoRotate] = useState(false);
-  const [wireframe, setWireframe] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 px-6 py-16 overflow-hidden">
+    <div className="h-screen overflow-hidden bg-gray-100 text-gray-800 px-6 py-8">
       <div className="max-w-5xl mx-auto">
         {/* 상단 소개 텍스트 */}
         <div className="text-center mb-8">
