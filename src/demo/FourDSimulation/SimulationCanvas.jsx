@@ -4,14 +4,18 @@ import { glbGroups } from "./glbFiles";
 import { a, useSpring } from "@react-spring/three";
 import { useEffect, useRef, useState } from "react";
 
-// 📌 GLB 사전 로드
+// 📌 GLB 사전 로드 (텍스처 경로 포함)
 glbGroups.flat().forEach((file) => {
-  useGLTF.preload(file.url);
+  useGLTF.preload(file.url, true, (loader) => {
+    loader.setResourcePath("/"); // ✅ 텍스처 경로 해결
+  });
 });
 
 // GLB 모델 렌더링 컴포넌트
 function GLBModel({ url }) {
-  const { scene } = useGLTF(url);
+  const { scene } = useGLTF(url, true, (loader) => {
+    loader.setResourcePath("/"); // ✅ 텍스처 경로 해결
+  });
   const [visible, setVisible] = useState(false);
 
   const spring = useSpring({
@@ -58,11 +62,9 @@ function CameraController({ step, isAutoCameraEnabled, resetTrigger }) {
   return null;
 }
 
-// 메인 시뮬레이션 컴포넌트
+// 메인 시뮬레이션 캔버스
 export default function SimulationCanvas({ step, resetTrigger }) {
   const isAutoCameraEnabled = useRef(true);
-
-  // step에 따라 그룹 렌더링
   const visibleModels = step > 0 ? glbGroups.slice(0, step).flat() : [];
 
   return (
