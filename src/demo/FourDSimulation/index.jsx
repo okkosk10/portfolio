@@ -3,7 +3,7 @@ import { useState } from "react";
 import SimulationCanvas from "./SimulationCanvas";
 
 export default function FourDSimulation() {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
 
   return (
     <div className="min-h-screen px-6 py-12 bg-gray-100 text-gray-800">
@@ -19,8 +19,8 @@ export default function FourDSimulation() {
         <div className="text-center">
           <input
             type="range"
-            min={0}
-            max={108}
+            min={1}
+            max={3}
             value={step}
             onChange={(e) => setStep(Number(e.target.value))}
             className="w-full sm:w-1/2"
