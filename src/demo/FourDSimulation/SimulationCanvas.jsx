@@ -3,7 +3,6 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { glbGroups } from "./glbFiles";
 import { a, useSpring } from "@react-spring/three";
 import { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
 
 // 📌 GLB 사전 로드 (텍스처 경로 포함)
 glbGroups.flat().forEach((file) => {
@@ -28,21 +27,6 @@ function GLBModel({ url }) {
   useEffect(() => {
     setVisible(true);
   }, []);
-
-  // 텍스처 로드 및 강제 삽입
-  useEffect(() => {
-    const textureLoader = new THREE.TextureLoader();
-    const texture = textureLoader.load("/Textures/colormap.png");  // 텍스처 경로
-
-    scene.traverse((child) => {
-      if (child.isMesh && child.material) {
-        if (!child.material.map) {
-          child.material.map = texture;
-          child.material.needsUpdate = true;
-        }
-      }
-    });
-  }, [scene]);
 
   return (
     <a.primitive
