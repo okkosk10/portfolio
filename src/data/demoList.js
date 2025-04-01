@@ -12,7 +12,7 @@ const demos = [
       title: "디지털 트윈 시각화",
       slug: "digital-twin",
       stack: "React, Axios, Chart.js",
-      intro: "센서 데이터를 기반으로 상태를 실시간 시각화하는 디지털 트윈 UI 구성 예시입니다.",
+      intro: "외부 Api를 기반으로 상태를 실시간 시각화하는 디지털 트윈 UI 구성 예시입니다.",
       tech: "React, Axios, Chart.js, TailwindCSS",
       features: "외부 API 연동, 실시간 데이터 시각화, 차트 및 상태 모니터링 구성",
     },
