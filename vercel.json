@@ -1,10 +1,10 @@
 {
-  "rewrites": [
-    { "source": "/demo/:slug", "destination": "/index.html" }
-  ],
   "build": {
     "env": {
       "NPM_FLAGS": "--legacy-peer-deps"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/demo/:slug", "destination": "/index.html" }
+  ]
 }
