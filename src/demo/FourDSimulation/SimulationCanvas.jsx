@@ -1,42 +1,94 @@
-// src/demo/FourDSimulation/SimulationCanvas.jsx
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { useEffect, useState } from "react";
 import { glbGroups } from "./glbFiles";
+import { a, useSpring } from "@react-spring/three";
+import { useEffect, useRef, useState } from "react";
 
-function GLBModel({ url, visible }) {
+// 📌 GLB 사전 로드
+glbGroups.flat().forEach((file) => {
+  useGLTF.preload(file.url);
+});
+
+// GLB 모델 렌더링 컴포넌트
+function GLBModel({ url }) {
   const { scene } = useGLTF(url);
+  const [visible, setVisible] = useState(false);
+
+  const spring = useSpring({
+    scale: visible ? [1, 1, 1] : [0, 0, 0],
+    position: visible ? [0, 0, 0] : [0, -1, 0],
+    config: { tension: 120, friction: 14 },
+  });
+
+  useEffect(() => {
+    setVisible(true);
+  }, []);
+
   return (
-    <primitive
+    <a.primitive
       object={scene}
       dispose={null}
-      visible={visible}
-      scale={1}
-      position={[0, 0, 0]}
+      scale={spring.scale}
+      position={spring.position}
     />
   );
 }
 
-export default function SimulationCanvas({ step }) {
-  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
+// 카메라 제어 컴포넌트
+function CameraController({ step, isAutoCameraEnabled, resetTrigger }) {
+  const { camera } = useThree();
+
+  const spring = useSpring({
+    to: {
+      position: [step * 1.5 + 6, 8, step * 1.5 + 6],
+    },
+    config: { tension: 80, friction: 20 },
+  });
+
+  useFrame(() => {
+    if (!isAutoCameraEnabled.current) return;
+    const pos = spring.position.get();
+    camera.position.set(pos[0], pos[1], pos[2]);
+  });
 
   useEffect(() => {
-    // step에 따라 보여줄 그룹 업데이트
-    setCurrentGroupIndex(step);
-  }, [step]);
+    isAutoCameraEnabled.current = true;
+  }, [resetTrigger]);
+
+  return null;
+}
+
+// 메인 시뮬레이션 컴포넌트
+export default function SimulationCanvas({ step, resetTrigger }) {
+  const isAutoCameraEnabled = useRef(true);
+
+  // step에 따라 그룹 렌더링
+  const visibleModels = step > 0 ? glbGroups.slice(0, step).flat() : [];
 
   return (
-    <div className="relative w-full h-[600px] rounded-xl overflow-hidden shadow-lg bg-white">
-      <Canvas camera={{ position: [4, 4, 6], fov: 45 }}>
-        <ambientLight intensity={0.6} />
-        <directionalLight position={[5, 5, 5]} intensity={0.8} />
-        <OrbitControls />
+    <Canvas camera={{ position: [10, 8, 10], fov: 40 }}>
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[5, 5, 5]} intensity={0.8} />
 
-        {/* 현재까지의 그룹만 표시 */}
-        {glbGroups.slice(0, currentGroupIndex + 1).flat().map((file, idx) => (
-          <GLBModel key={idx} url={file.url} visible={true} />
-        ))}
-      </Canvas>
-    </div>
+      <OrbitControls
+        enableZoom={true}
+        enablePan={true}
+        enableRotate={true}
+        onStart={() => {
+          isAutoCameraEnabled.current = false;
+        }}
+      />
+
+      <CameraController
+        step={step}
+        isAutoCameraEnabled={isAutoCameraEnabled}
+        resetTrigger={resetTrigger}
+      />
+
+      {/* step만큼만 렌더링 */}
+      {visibleModels.map((file, idx) => (
+        <GLBModel key={`${file.name}-${idx}`} url={file.url} />
+      ))}
+    </Canvas>
   );
 }
