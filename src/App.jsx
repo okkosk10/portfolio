@@ -19,12 +19,6 @@ import DashboardDemo from "./demo/DashboardDemo";
 import "./index.css";
 
 export default function App() {
-  useEffect(() => {
-    // 홈 접속 시 Render 백엔드 깨우기
-    axios.get("https://feedback-api-e1cs.onrender.com/feedback")
-      .then(() => console.log("🚀 Render 백엔드 깨움"))
-      .catch(() => console.warn("⚠️ Render 서버 깨우기 실패"));
-  }, []);
 
   return (
     <Routes>

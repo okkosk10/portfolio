@@ -1,4 +1,3 @@
-// src/demo/ApiDemo/index.jsx
 import { useEffect, useState } from "react";
 import axios from "axios";
 import dayjs from "dayjs";
@@ -11,6 +10,7 @@ export default function ApiDemo() {
   const [nameError, setNameError] = useState(false);
   const [messageError, setMessageError] = useState(false);
   const [sortOrder, setSortOrder] = useState("desc");
+  const [wakingUp, setWakingUp] = useState(true); // ✅ 서버 깨우기 상태
 
   const API_BASE_URL = "https://feedback-api-e1cs.onrender.com";
 
@@ -20,6 +20,16 @@ export default function ApiDemo() {
       setFeedbackList(res.data);
     } catch (err) {
       console.error("GET 오류", err);
+    }
+  };
+
+  const wakeUpServer = async () => {
+    try {
+      await axios.get(`${API_BASE_URL}/feedback`);
+      setWakingUp(false);
+      fetchFeedbacks();
+    } catch (err) {
+      console.error("서버 깨우기 실패", err);
     }
   };
 
@@ -55,7 +65,7 @@ export default function ApiDemo() {
   };
 
   useEffect(() => {
-    fetchFeedbacks();
+    wakeUpServer(); // ✅ 진입 시 서버 깨우기
   }, []);
 
   useEffect(() => {
@@ -69,6 +79,15 @@ export default function ApiDemo() {
     if (sortOrder === "desc") return new Date(b.createdAt) - new Date(a.createdAt);
     else return new Date(a.createdAt) - new Date(b.createdAt);
   });
+
+  // ✅ 서버 깨우는 중일 때 메시지 보여주기
+  if (wakingUp) {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-gray-600 text-lg">
+        🚀 서버 깨우는 중입니다... 잠시만 기다려주세요!
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen overflow-hidden bg-gray-100 text-gray-800 px-6 py-8">
@@ -141,10 +160,7 @@ export default function ApiDemo() {
 
         {/* 오른쪽: 정보 패널 */}
         <div className="w-full lg:w-1/3 h-full overflow-y-auto bg-white rounded-xl shadow p-6 space-y-6">
-          {/* 타이틀 */}
           <h1 className="text-2xl font-bold text-blue-700">RESTful API 연동 예시</h1>
-
-          {/* 기술 스택 */}
           <div>
             <h2 className="text-lg font-semibold text-gray-700">🛠️ 사용 기술 스택</h2>
             <ul className="list-disc list-inside text-sm text-gray-600 mt-2">
@@ -156,8 +172,6 @@ export default function ApiDemo() {
               <li>Render (서버 배포)</li>
             </ul>
           </div>
-
-          {/* 시나리오 설명 */}
           <div>
             <h2 className="text-lg font-semibold text-gray-700 pt-2">📄 프로젝트 시나리오</h2>
             <p className="text-sm text-gray-600 leading-relaxed mt-2">
