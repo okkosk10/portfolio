@@ -10,6 +10,9 @@ import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 import ViewerDemo from "./demo/ViewerDemo";
 import DigitalTwinDemo from "./demo/DigitalTwin";
+import Simulation4D from "./demo/FourDSimulation";
+import ApiDemo from "./demo/ApiDemo";
+import DashboardDemo from "./demo/DashboardDemo";
 
 import "./index.css";
 
@@ -33,10 +36,11 @@ export default function App() {
           </div>
         }
       />
-
-      {/* 기술 데모: 3D Viewer */}
       <Route path="/demo/3d-viewer" element={<ViewerDemo />} />
       <Route path="/demo/digital-twin" element={<DigitalTwinDemo />} />
+      <Route path="/demo/4d-simulation" element={<Simulation4D />} />
+      <Route path="/demo/api-integration" element={<ApiDemo />} />
+      <Route path="/demo/dashboard" element={<DashboardDemo />} />
     </Routes>
   );
 }
