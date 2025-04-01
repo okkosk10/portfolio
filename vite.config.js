@@ -1,8 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path'; // ✅ 추가
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  assetsInclude: ['**/*.glb'] // ✅ glb 파일 번들링 포함
-})
+  assetsInclude: ['**/*.glb'], // ✅ GLB 파일 포함
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // ✅ @ = src 폴더로 인식
+    },
+  },
+});

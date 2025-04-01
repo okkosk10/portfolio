@@ -10,6 +10,7 @@ module.exports = {
         'fade-in-up': 'fadeInUp 1.2s ease-out',
         'fade-in-down': 'fadeInDown 0.8s ease-out',
         'fade-in-right': 'fadeInRight 0.8s ease-out',
+        'fade-out': 'fadeOut 0.3s ease-in forwards',
       },
       keyframes: {
         fadeInUp: {
