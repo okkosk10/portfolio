@@ -1,57 +1,42 @@
-// src/demo/SimulationDemo/SimulationCanvas.jsx
+// src/demo/FourDSimulation/SimulationCanvas.jsx
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import { useState, useEffect } from "react";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useEffect, useState } from "react";
+import { glbGroups } from "./glbFiles";
 
-export default function SimulationCanvas() {
-  const [currentStep, setCurrentStep] = useState(0);
+function GLBModel({ url, visible }) {
+  const { scene } = useGLTF(url);
+  return (
+    <primitive
+      object={scene}
+      dispose={null}
+      visible={visible}
+      scale={1}
+      position={[0, 0, 0]}
+    />
+  );
+}
 
-  // 시간 흐름에 따라 단계 증가
+export default function SimulationCanvas({ step }) {
+  const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentStep((prev) => (prev < 3 ? prev + 1 : prev));
-    }, 1500); // 1.5초마다 단계 증가
-
-    return () => clearInterval(interval);
-  }, []);
+    // step에 따라 보여줄 그룹 업데이트
+    setCurrentGroupIndex(step);
+  }, [step]);
 
   return (
-    <Canvas camera={{ position: [5, 5, 10], fov: 45 }}>
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[10, 10, 5]} intensity={1} />
-      <OrbitControls />
+    <div className="relative w-full h-[600px] rounded-xl overflow-hidden shadow-lg bg-white">
+      <Canvas camera={{ position: [4, 4, 6], fov: 45 }}>
+        <ambientLight intensity={0.6} />
+        <directionalLight position={[5, 5, 5]} intensity={0.8} />
+        <OrbitControls />
 
-      {/* 기초 (foundation) */}
-      {currentStep >= 0 && (
-        <mesh position={[0, 0.5, 0]}>
-          <boxGeometry args={[4, 1, 4]} />
-          <meshStandardMaterial color="gray" />
-        </mesh>
-      )}
-
-      {/* 1층 (frame1) */}
-      {currentStep >= 1 && (
-        <mesh position={[0, 2, 0]}>
-          <boxGeometry args={[3.5, 2, 3.5]} />
-          <meshStandardMaterial color="lightblue" />
-        </mesh>
-      )}
-
-      {/* 2층 (frame2) */}
-      {currentStep >= 2 && (
-        <mesh position={[0, 4.5, 0]}>
-          <boxGeometry args={[3, 2, 3]} />
-          <meshStandardMaterial color="lightskyblue" />
-        </mesh>
-      )}
-
-      {/* 지붕 (roof) */}
-      {currentStep >= 3 && (
-        <mesh position={[0, 7, 0]}>
-          <boxGeometry args={[2.5, 1, 2.5]} />
-          <meshStandardMaterial color="steelblue" />
-        </mesh>
-      )}
-    </Canvas>
+        {/* 현재까지의 그룹만 표시 */}
+        {glbGroups.slice(0, currentGroupIndex + 1).flat().map((file, idx) => (
+          <GLBModel key={idx} url={file.url} visible={true} />
+        ))}
+      </Canvas>
+    </div>
   );
 }
