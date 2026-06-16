@@ -19,7 +19,9 @@ export default function Home() {
         {/* 포트폴리오 제목을 표시합니다. */}
         <h1 className={styles.title}>전양근 포트폴리오</h1>
         {/* 부제목을 표시합니다. */}
-        <p className={styles.subtitle}>React & 3D Viewer 기반 프론트엔드 개발자</p>
+        <p className={styles.subtitle}>
+          AI를 개발 워크플로우에 활용하는 프론트엔드 개발자
+        </p>
       </div>
     </section>
   );

@@ -12,8 +12,8 @@ export default function About() {
           <h2 className={styles.sectionTitle}>소개</h2>
           <p className={styles.subtitle}>
             프론트엔드 개발자 전양근입니다.<br />
-            React 기반 웹 시스템, 3D Viewer, Digital Twin 등<br />
-            실무 중심의 개발 경험을 바탕으로 다양한 기술을 구현할 수 있습니다.
+            React 기반 웹 시스템과 인터랙티브 UI 구현 경험을 바탕으로<br />
+            AI를 활용한 코드 작성, 문제 분석, 리팩토링을 개발 과정에 적극적으로 적용합니다.
           </p>
         </div>
 
@@ -26,10 +26,13 @@ export default function About() {
             <span>Node.js</span>
             <span>Three.js</span>
             <span>WebGL</span>
+            <span>AI-assisted Development</span>
+            <span>AI Integration</span>
+            <span>LLM API</span>
+            <span>Dashboard</span>
             <span>Oracle</span>
             <span>MySQL</span>
             <span>Git</span>
-            <span>Figma</span>
           </div>
         </div>
 
@@ -37,10 +40,12 @@ export default function About() {
         <div className={styles.traitsBlock}>
           <h3 className={styles.blockTitle}>💼 주요 업무 성향</h3>
           <ul className={styles.traitsList}>
-            <li>복잡한 UI/UX 요구사항 분석 및 실제 구현 경험</li>
-            <li>3D 기반 데이터 시각화 및 최적화 작업 다수</li>
-            <li>백엔드와 연동되는 기능 개발 및 서버 구조 이해</li>
-            <li>팀 중심 협업과 커뮤니케이션에 강함</li>
+            <li>AI 도구를 활용한 기능 설계, 코드 작성, 디버깅, 리팩토링 경험</li>
+            <li>복잡한 업무 요구사항을 사용자 중심 UI로 구조화</li>
+            <li>3D 기반 데이터 시각화와 웹 렌더링 최적화 경험</li>
+            <li>AI 기능의 비용, 사용량, fallback을 고려한 운영형 설계 지향</li>
+            <li>백엔드 API와 연동되는 대시보드 및 모니터링 화면 구현</li>
+            <li>팀 중심 협업과 명확한 커뮤니케이션에 강함</li>
           </ul>
         </div>
 

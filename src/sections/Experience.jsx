@@ -10,6 +10,28 @@ export default function Experience() {
 
         {/* 경력 리스트 */}
         <div className={styles.job}>
+          <h3 className={styles.company}>주식회사비소프트 (2025.05 ~ 2026.04)</h3>
+          <ul className={styles.jobDetails}>
+            <li>
+              <strong>AI 기반 음성 감정 분석 플랫폼 개발</strong><br />
+              · Flutter 기반 Android/iOS 애플리케이션 개발<br />
+              · 음성 녹음 및 파일 업로드 기능 구현<br />
+              · FFmpeg 기반 오디오 전처리 기능 개발<br />
+              · SSE(Server-Sent Events)를 활용한 실시간 분석 결과 수신<br />
+              · AI 감정 분석 API 연동 및 분석 결과 시각화 UI 구현<br />
+              · GetX 기반 상태관리 적용
+            </li>
+            <li>
+              <strong>펫 플랫폼 서비스 개발</strong><br />
+              · Flutter 기반 모바일 애플리케이션 개발<br />
+              · 반려동물 관리 및 커뮤니티 기능 구현<br />
+              · REST API 연동 및 공통 컴포넌트 설계<br />
+              · 화면 최적화 및 UX 개선
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.job}>
           <h3 className={styles.company}>이노액티브 (2019.12 ~ 2024.11)</h3>
           <ul className={styles.jobDetails}>
             <li>
