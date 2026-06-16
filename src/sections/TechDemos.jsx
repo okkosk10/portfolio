@@ -6,7 +6,7 @@ export default function TechDemos() {
   return (
     <section id="techdemos" className="py-20 px-6 bg-gray-100">
       <div className="max-w-screen-xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10 text-center">기술 기반 구현 예시</h2>
+        <h2 className="text-3xl font-bold mb-10 text-center">주요 구현 데모</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {demos.map((demo, idx) => (
             <a

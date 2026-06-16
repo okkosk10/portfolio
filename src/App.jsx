@@ -15,6 +15,7 @@ import DigitalTwinDemo from "./demo/DigitalTwin";
 import Simulation4D from "./demo/FourDSimulation";
 import ApiDemo from "./demo/ApiDemo";
 import DashboardDemo from "./demo/DashboardDemo";
+import AiWorkflowDemo from "./demo/AiWorkflow";
 
 import "./index.css";
 
@@ -44,6 +45,7 @@ export default function App() {
       <Route path="/demo/4d-simulation" element={<Simulation4D />} />
       <Route path="/demo/api-integration" element={<ApiDemo />} />
       <Route path="/demo/dashboard" element={<DashboardDemo />} />
+      <Route path="/demo/ai-workflow" element={<AiWorkflowDemo />} />
     </Routes>
   );
 }
