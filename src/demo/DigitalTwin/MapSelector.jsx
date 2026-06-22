@@ -1,5 +1,6 @@
 // MapSelector.jsx
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 // 🔧 마커 아이콘 깨짐 방지 설정

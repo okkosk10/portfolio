@@ -49,7 +49,7 @@ export default function ApiDemo() {
       setName("");
       setMessage("");
       fetchFeedbacks();
-    } catch (err) {
+    } catch {
       setStatus("오류 발생");
     }
   };
@@ -58,7 +58,7 @@ export default function ApiDemo() {
     try {
       await axios.delete(`${API_BASE_URL}/feedback/${id}`);
       fetchFeedbacks();
-    } catch (err) {
+    } catch {
       setStatus("삭제 실패");
     }
   };

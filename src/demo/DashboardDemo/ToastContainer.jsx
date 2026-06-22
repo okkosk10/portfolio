@@ -1,7 +1,23 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function ToastContainer({ latest }) {
   const [toasts, setToasts] = useState([]);
+
+  const removeToast = useCallback((id) => {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
+  }, []);
+
+  const triggerFadeOut = useCallback((id) => {
+    setToasts((prev) =>
+      prev.map((toast) =>
+        toast.id === id ? { ...toast, fadingOut: true } : toast
+      )
+    );
+
+    setTimeout(() => {
+      removeToast(id);
+    }, 300);
+  }, [removeToast]);
 
   useEffect(() => {
     if (!latest) return;
@@ -11,27 +27,9 @@ export default function ToastContainer({ latest }) {
 
     setToasts((prev) => [...prev, toast]);
 
-    // 자동 제거 타이머 (페이드 아웃까지 고려)
     const timeout = setTimeout(() => triggerFadeOut(id), 2500);
-
     return () => clearTimeout(timeout);
-  }, [latest]);
-
-  // ✅ 페이드 아웃 시작
-  const triggerFadeOut = (id) => {
-    setToasts((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, fadingOut: true } : t))
-    );
-
-    // 실제 제거 (애니메이션 끝난 뒤)
-    setTimeout(() => {
-      removeToast(id);
-    }, 300); // fade-out 시간과 일치
-  };
-
-  const removeToast = (id) => {
-    setToasts((prev) => prev.filter((t) => t.id !== id));
-  };
+  }, [latest, triggerFadeOut]);
 
   const getStyle = (type) => {
     switch (type) {
@@ -39,32 +37,32 @@ export default function ToastContainer({ latest }) {
         return {
           bg: "bg-yellow-100",
           border: "border-yellow-400",
-          icon: "⚠️",
+          icon: "!",
         };
       case "info":
       default:
         return {
           bg: "bg-blue-100",
           border: "border-blue-400",
-          icon: "ℹ️",
+          icon: "i",
         };
     }
   };
 
   return (
     <div className="fixed bottom-6 right-6 space-y-2 z-50">
-      {toasts.map((t) => {
-        const { bg, border, icon } = getStyle(t.type);
+      {toasts.map((toast) => {
+        const { bg, border, icon } = getStyle(toast.type);
         return (
           <div
-            key={t.id}
+            key={toast.id}
             className={`relative px-4 py-2 text-sm rounded shadow border ${bg} ${border} ${
-              t.fadingOut ? "animate-fade-out" : "animate-fade-in-up"
+              toast.fadingOut ? "animate-fade-out" : "animate-fade-in-up"
             }`}
           >
             <span className="mr-2">{icon}</span>
-            <strong className="mr-2 text-gray-800">{t.time}</strong>
-            <span className="text-gray-700">{t.message}</span>
+            <strong className="mr-2 text-gray-800">{toast.time}</strong>
+            <span className="text-gray-700">{toast.message}</span>
           </div>
         );
       })}

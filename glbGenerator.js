@@ -1,6 +1,8 @@
-// glbGenerator.js
-const fs = require("fs");
-const path = require("path");
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const inputDir = path.join(__dirname, "src", "demo", "FourDSimulation", "assets");
 const outputFile = path.join(__dirname, "src", "demo", "FourDSimulation", "glbFiles.js");

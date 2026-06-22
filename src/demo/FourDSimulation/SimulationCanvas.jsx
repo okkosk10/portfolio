@@ -1,8 +1,10 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { glbGroups } from "./glbFiles";
-import { a, useSpring } from "@react-spring/three";
+import { animated, useSpring } from "@react-spring/three";
 import { useEffect, useRef, useState } from "react";
+
+const AnimatedPrimitive = animated.primitive;
 
 // 📌 GLB 사전 로드 (텍스처 경로 포함)
 glbGroups.flat().forEach((file) => {
@@ -29,7 +31,7 @@ function GLBModel({ url }) {
   }, []);
 
   return (
-    <a.primitive
+    <AnimatedPrimitive
       object={scene}
       dispose={null}
       scale={spring.scale}
@@ -57,7 +59,7 @@ function CameraController({ step, isAutoCameraEnabled, resetTrigger }) {
 
   useEffect(() => {
     isAutoCameraEnabled.current = true;
-  }, [resetTrigger]);
+  }, [isAutoCameraEnabled, resetTrigger]);
 
   return null;
 }

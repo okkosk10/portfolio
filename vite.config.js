@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import path from 'path'; // ✅ 추가
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [react()],
-  assetsInclude: ['**/*.glb'], // ✅ GLB 파일 포함
+  assetsInclude: ['**/*.glb'],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'), // ✅ @ = src 폴더로 인식
+      '@': path.resolve(__dirname, 'src'),
     },
   },
 });

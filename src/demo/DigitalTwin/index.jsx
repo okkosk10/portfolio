@@ -1,5 +1,5 @@
 // src/demo/DigitalTwin/index.jsx
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import useSensorData from "./useSensorData";
 import SensorChart from "./SensorChart";
 import MapSelector from "./MapSelector";

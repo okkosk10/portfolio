@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,14 +9,28 @@ import TechDemos from "./sections/TechDemos";
 import Contact from "./sections/Contact";
 import Experience from "./sections/Experience";
 
-import ViewerDemo from "./demo/ViewerDemo";
-import DigitalTwinDemo from "./demo/DigitalTwin";
-import Simulation4D from "./demo/FourDSimulation";
-import ApiDemo from "./demo/ApiDemo";
-import DashboardDemo from "./demo/DashboardDemo";
-import AiWorkflowDemo from "./demo/AiWorkflow";
-
 import "./index.css";
+
+const ViewerDemo = lazy(() => import("./demo/ViewerDemo"));
+const DigitalTwinDemo = lazy(() => import("./demo/DigitalTwin"));
+const Simulation4D = lazy(() => import("./demo/FourDSimulation"));
+const ApiDemo = lazy(() => import("./demo/ApiDemo"));
+const DashboardDemo = lazy(() => import("./demo/DashboardDemo"));
+const AiWorkflowDemo = lazy(() => import("./demo/AiWorkflow"));
+
+function DemoRoute({ children }) {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 text-gray-600">
+          Loading demo...
+        </div>
+      }
+    >
+      {children}
+    </Suspense>
+  );
+}
 
 export default function App() {
 
@@ -40,12 +53,12 @@ export default function App() {
           </div>
         }
       />
-      <Route path="/demo/3d-viewer" element={<ViewerDemo />} />
-      <Route path="/demo/digital-twin" element={<DigitalTwinDemo />} />
-      <Route path="/demo/4d-simulation" element={<Simulation4D />} />
-      <Route path="/demo/api-integration" element={<ApiDemo />} />
-      <Route path="/demo/dashboard" element={<DashboardDemo />} />
-      <Route path="/demo/ai-workflow" element={<AiWorkflowDemo />} />
+      <Route path="/demo/3d-viewer" element={<DemoRoute><ViewerDemo /></DemoRoute>} />
+      <Route path="/demo/digital-twin" element={<DemoRoute><DigitalTwinDemo /></DemoRoute>} />
+      <Route path="/demo/4d-simulation" element={<DemoRoute><Simulation4D /></DemoRoute>} />
+      <Route path="/demo/api-integration" element={<DemoRoute><ApiDemo /></DemoRoute>} />
+      <Route path="/demo/dashboard" element={<DemoRoute><DashboardDemo /></DemoRoute>} />
+      <Route path="/demo/ai-workflow" element={<DemoRoute><AiWorkflowDemo /></DemoRoute>} />
     </Routes>
   );
 }

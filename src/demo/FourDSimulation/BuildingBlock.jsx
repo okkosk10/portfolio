@@ -2,6 +2,8 @@
 import { useGLTF } from '@react-three/drei';
 import { useSpring, animated } from '@react-spring/three';
 
+const AnimatedPrimitive = animated.primitive;
+
 export default function BuildingBlock({ path, visible, position }) {
   const { scene } = useGLTF(path);
 
@@ -11,7 +13,7 @@ export default function BuildingBlock({ path, visible, position }) {
   });
 
   return (
-    <animated.primitive
+    <AnimatedPrimitive
       object={scene}
       dispose={null}
       scale={scale}

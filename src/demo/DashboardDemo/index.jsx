@@ -17,7 +17,7 @@ export default function DashboardDemo() {
       generateRandomStats();
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [generateRandomStats]);
 
   useEffect(() => {
     if (alerts.length > prevCountRef.current) {
