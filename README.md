@@ -1,6 +1,6 @@
 # Frontend Portfolio
 
-React 기반 프론트엔드 포트폴리오입니다. 3D 시각화, 디지털 트윈, 4D 시뮬레이션, REST API 연동, 실시간 대시보드, AI-assisted workflow 데모를 한 곳에서 확인할 수 있도록 구성했습니다.
+React 기반 프론트엔드 포트폴리오입니다. 3D 시각화, 디지털 트윈, 4D 시뮬레이션, REST API 연동, 실시간 대시보드 데모를 한 곳에서 확인할 수 있도록 구성했습니다.
 
 ## Tech Stack
 
@@ -17,7 +17,6 @@ React 기반 프론트엔드 포트폴리오입니다. 3D 시각화, 디지털 �
 
 | Demo | Path | Focus |
 | --- | --- | --- |
-| AI Workflow | `/demo/ai-workflow` | AI 도구를 활용한 요구사항 정리, 코드 개선, 검증 흐름 |
 | Web3D Viewer | `/demo/3d-viewer` | GLB 모델 로딩, OrbitControls 기반 3D 조작 |
 | Digital Twin | `/demo/digital-twin` | Open-Meteo API, 지도 선택, 센서 데이터 차트 |
 | 4D Simulation | `/demo/4d-simulation` | 시간 흐름에 따른 3D 건물 요소 시뮬레이션 |

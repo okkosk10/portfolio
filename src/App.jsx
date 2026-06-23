@@ -16,7 +16,6 @@ const DigitalTwinDemo = lazy(() => import("./demo/DigitalTwin"));
 const Simulation4D = lazy(() => import("./demo/FourDSimulation"));
 const ApiDemo = lazy(() => import("./demo/ApiDemo"));
 const DashboardDemo = lazy(() => import("./demo/DashboardDemo"));
-const AiWorkflowDemo = lazy(() => import("./demo/AiWorkflow"));
 
 function DemoRoute({ children }) {
   return (
@@ -33,10 +32,8 @@ function DemoRoute({ children }) {
 }
 
 export default function App() {
-
   return (
     <Routes>
-      {/* 메인 포트폴리오 페이지 */}
       <Route
         path="/"
         element={
@@ -58,7 +55,6 @@ export default function App() {
       <Route path="/demo/4d-simulation" element={<DemoRoute><Simulation4D /></DemoRoute>} />
       <Route path="/demo/api-integration" element={<DemoRoute><ApiDemo /></DemoRoute>} />
       <Route path="/demo/dashboard" element={<DemoRoute><DashboardDemo /></DemoRoute>} />
-      <Route path="/demo/ai-workflow" element={<DemoRoute><AiWorkflowDemo /></DemoRoute>} />
     </Routes>
   );
 }

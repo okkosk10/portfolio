@@ -1,14 +1,6 @@
 // data/demoList.js
 const demos = [
     {
-      title: "AI 활용 개발 워크플로우",
-      slug: "ai-workflow",
-      stack: "React, AI Tooling, Mock Data",
-      intro: "AI 도구를 요구사항 정리, 코드 개선, 검증 포인트 도출에 활용하는 개발 흐름을 정리한 데모입니다.",
-      tech: "React, TailwindCSS, Mock AI Scenario",
-      features: "단계별 개발 보조 시나리오, AI 응답 예시, API Key 없이 동작하는 공개 데모 구조"
-    },
-    {
       title: "Web3D Viewer 구현",
       slug: "3d-viewer",
       stack: "React, Three.js, WebGL",
