@@ -31,14 +31,6 @@ const demos = [
       intro: "Node.js 백엔드와 React 프론트엔드 간 RESTful API 연동 예시입니다.",
       tech: "Node.js, Express, React, Axios",
       features: "GET/POST API 처리, 데이터 통신 테스트, 응답 렌더링 처리"
-    },
-    {
-      title: "실시간 모니터링 대시보드",
-      slug: "dashboard",
-      stack: "React, Zustand, Chart.js",
-      intro: "상태 관리와 퍼포먼스 최적화를 반영한 실시간 UI 기반 대시보드 구성 예시입니다.",
-      tech: "React, Zustand, Chart.js, TailwindCSS",
-      features: "다중 패널 렌더링, 상태 기반 조건부 UI, 실시간 알림 및 그래프 구성"
     }
   ];
   

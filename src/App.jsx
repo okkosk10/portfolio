@@ -15,7 +15,6 @@ const ViewerDemo = lazy(() => import("./demo/ViewerDemo"));
 const DigitalTwinDemo = lazy(() => import("./demo/DigitalTwin"));
 const Simulation4D = lazy(() => import("./demo/FourDSimulation"));
 const ApiDemo = lazy(() => import("./demo/ApiDemo"));
-const DashboardDemo = lazy(() => import("./demo/DashboardDemo"));
 
 function DemoRoute({ children }) {
   return (
@@ -54,7 +53,6 @@ export default function App() {
       <Route path="/demo/digital-twin" element={<DemoRoute><DigitalTwinDemo /></DemoRoute>} />
       <Route path="/demo/4d-simulation" element={<DemoRoute><Simulation4D /></DemoRoute>} />
       <Route path="/demo/api-integration" element={<DemoRoute><ApiDemo /></DemoRoute>} />
-      <Route path="/demo/dashboard" element={<DemoRoute><DashboardDemo /></DemoRoute>} />
     </Routes>
   );
 }
